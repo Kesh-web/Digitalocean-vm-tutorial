@@ -22,13 +22,21 @@ To start we will be creating SSH keys which is
 
 ```ssh-keygen -t ed25519 -f ~/.ssh/do-key -C "your email address"```
 
-To explain the following command /
+To explain the previous command 
 1. **ssh-keygen** is the base of the command to create the public and private keys.
 2. **-t** specifies the type of key (Ed25519 is an elliptic curve signing algorithm using EdDSA and Curve25519.)
 3. **-f** specifies the file path that the key will be generated in.
 4. **do-key** is the name we will be giving the generated key. Its important to manage names properly if you have more than one SSH key.
 4. **-C** attaches a comment to the key(in our case putting an email to remember.)
 
+#### Copying SSH Keys to clipboard
+To copy the SSH Public Key to your clipboard, go to your terminal and **type** \
+```wl-copy < ~/.ssh/do-key.pub``` \
+This will add the Public Key to your clipboard which you can then add to your Digital Ocean account in the following section.
+
+
+#### Add the Public Key to Digital Ocean #### 
+Go to the "Security" tab and add your public key there.
 
 
 
