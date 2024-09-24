@@ -52,7 +52,16 @@ This will add the Public Key to your clipboard which you can then add to your Di
 #### Creating an API token
 After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for API on the left side task bar.
 
-![alt text](image.png)
+![API page screenshot](image.png)
+
+Give **Full Access**, a **Token Name**, and then generate the Token.
+
+![Create A New Personal Access Token](image-1.png)
+
+Copy the Access Token and keep it somewhere safe.
+
+![Dont Forget to copy your Access Token](image-2.png)
+
 
 
 
