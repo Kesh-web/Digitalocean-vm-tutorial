@@ -45,11 +45,17 @@ To copy the SSH Public Key to your clipboard, go to your terminal and **type**. 
 
 ```wl-copy < ~/.ssh/do-key.pub``` 
 
-This will add the Public Key to your clipboard which you can then add to your Digital Ocean account in the following section.
+This will add the Public Key to your clipboard which you can then add to your Digital Ocean account in the cloud-init section
+## Installing ```doctl```
+- You should be in your home directory which is ~ to start.
+```sudo pacman -S doctl```
+#### Creating an API token
+After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for API on the left side task bar.
+
+![alt text](image.png)
 
 
-#### Add the Public Key to Digital Ocean #### 
-Go to the "Security" tab and add your public key by pasting it there.
+
 
 ## Setting up cloud-init for the First Configuration
 Now we will be setting up cloud-init written in YAML format.\
@@ -69,11 +75,13 @@ users:
 packages:
   - htop
   - vim
-ssh_pwauth: false
 disable_root: true
 ```
 Ill clarify what each line of code is for in the configuration.
-1. The purpose of #cloud-config is used by cloud-init to recongize and process the file correctly.
+1. **#cloud-config** is used by cloud-init to recongize and process the file correctly.
+2. **users:** configures a user account for the vm.
+3. **packages:** adds a list of packages to be installed on the vm.
+4, **disable_root** prevents the root user from logging in the server via SSH, which improves security.
 
 
 
