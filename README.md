@@ -93,7 +93,20 @@ Ill clarify what each line of code is for in the configuration.
 4, **disable_root** prevents the root user from logging in the server via SSH, which improves security.
 
 
+## Installing ```doctl``` 
+Now that we set up the #cloud-config file we can install ```doctl``` on the archlinux vm. Before we install it we need to install **wget** which is a program that retrieves content from web servers. To do so use the following command in your vm.
 
+
+``` sudo pacman -S wget ```
+
+After that you can download ```doctl``` with the following 
+
+
+```wget https://github.com/digitalocean/doctl/releases/download/v1.110.0/doctl-1.110.0-linux-amd64.tar.gz```
+
+Then extract the file using ```tar``` which is a command used for extracting files from archives
+
+```tar xf ~/doctl-1.110.0-linux-amd64.tar.gz```
 
 
 
