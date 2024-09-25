@@ -108,6 +108,18 @@ Then extract the file using ```tar``` which is a command used for extracting fil
 
 ```tar xf ~/doctl-1.110.0-linux-amd64.tar.gz```
 
+Finally we can move the extracted files to your path and that will install it.
+
+```sudo mv ~/doctl /usr/local/bin```
+
+To verify its been installed run the following and youll see an output like this
+
+```doctl version```
+![doctl version output](image-3.png)
+
+
+
+
 
 
 
