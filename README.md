@@ -117,6 +117,9 @@ To verify its been installed run the following and youll see an output like this
 ```doctl version```
 ![doctl version output](image-3.png)
 
+upload arch image
+upload ssh key arch
+
 
 
 
