@@ -56,7 +56,7 @@ After installing doctl we need to create an API token to grant acount access to 
 
 Give **Full Access**, a **Token Name**, and then generate the Token.
 
-<img src= Assets/Create-access-token.png style='width: 50%;'>
+<img src= Assets/Create-access-token.png style='width: 50%;'g>
 
 Copy the Access Token and keep it somewhere safe.
 
@@ -156,6 +156,19 @@ We will be choosing San Francisco 3 as the datacenter
 Then at the bottom you can find the upload button
 
 <img src= Assets/blue-button-image.png style='width: 50%;'>
+
+
+## Authenticating ```doctl``` using your API Token
+
+Open your terminal and **type** this command in
+You can change  anything about context to anything you want, but I just put my name.
+
+```doctl auth init --context Kesh```
+
+
+After adding your API Token youll see a green checkmark saying your token was validated.
+
+<img src= 'Assets/Validating.png' style='width= 50%' > 
 
 
 
