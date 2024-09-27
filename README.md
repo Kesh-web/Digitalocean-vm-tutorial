@@ -117,9 +117,32 @@ To verify its been installed run the following and youll see an output like this
 ```doctl version```
 ![doctl version output](image-3.png)
 
+
 upload arch image
 upload ssh key arch
 
+## Uploading Custom Image to Digital Ocean
+Now before we deploy the droplet with cloud-init, you'll need to upload the custom Arch Linux image to Digital Ocean. Once you upload the custom image, youll be able to create a Droplet with all preconfigured cloud file.
+
+Start with selecting the project youre going to use.
+
+![alt text](image.png)
+
+
+After selecting the project on the left side taskbar click on **Backups and Snapshots** and itll bring you to the page to add your custom image.
+
+
+![alt text](image-1.png)
+
+
+
+**Press** the big upload image button on the bottom right
+
+![alt text](CustomImageUpload.png)
+
+Select the Arch Linux Image and open it 
+
+![alt text](image-2.png)
 
 
 
