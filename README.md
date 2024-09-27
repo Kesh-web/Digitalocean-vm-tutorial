@@ -81,6 +81,16 @@ Now we will be setting up cloud-init written in YAML format.\
  ``` vim cloud-init-arch.yml ```
 
 
+
+Paste the following config into **vim**
+
+You can press **i** to start editing and after adding the file **:wq** to save and exit **vim**
+
+1. : would enter command line mode
+2. w writes what you entered
+3. q quits out of vim 
+
+
 ``` 
 #cloud-config
 users:
