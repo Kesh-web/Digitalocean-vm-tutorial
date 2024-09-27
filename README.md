@@ -144,9 +144,18 @@ Select the Arch Linux Image and open it
 
 ![alt text](image-2.png)
 
+Choose the Arch Linux Distro
+
+![alt text](image-3.png)
+
+We will be choosing San Francisco 3 as the datacenter
+
+![alt text](image-4.png)
 
 
+Then at the bottom you can find the upload button
 
+![alt text](image-5.png)
 
 
 
