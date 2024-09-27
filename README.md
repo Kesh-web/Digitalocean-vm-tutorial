@@ -52,11 +52,11 @@ This will add the Public Key to your clipboard which you can then add to your Di
 #### Creating an API token
 After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for API on the left side task bar.
 
-<img src= Assets/API-button.png>
+<img src= Assets/API-button.png style='width: 50%;'>
 
 Give **Full Access**, a **Token Name**, and then generate the Token.
 
-<img src= Assets/Create-access-token.png>
+<img src= Assets/Create-access-token.png style='width: 50%;'>
 
 Copy the Access Token and keep it somewhere safe.
 
@@ -138,24 +138,24 @@ After selecting the project on the left side taskbar click on **Backups and Snap
 
 **Press** the big upload image button on the bottom right
 
-<img src= Assets/CustomImageUpload.png>
+<img src= Assets/CustomImageUpload.png >
 
 Select the Arch Linux Image and open it 
 
-<img src= Assets/File-upload.png>
+<img src= Assets/File-upload.png >
 
 Choose the Arch Linux Distro
 
-<img src= Assets/upload-an-image.png>
+<img src= Assets/upload-an-image.png style='width: 50%;'>
 
 We will be choosing San Francisco 3 as the datacenter
 
-<img src= Assets/choose-datacenter.png>
+<img src= Assets/choose-datacenter.png style='width: 50%;'>
 
 
 Then at the bottom you can find the upload button
 
-<img src= Assets/blue-button-image.png stlye='width: 50%;'>
+<img src= Assets/blue-button-image.png style='width: 50%;'>
 
 
 
