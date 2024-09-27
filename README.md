@@ -56,7 +56,7 @@ After installing doctl we need to create an API token to grant acount access to 
 
 Give **Full Access**, a **Token Name**, and then generate the Token.
 
-<img src= Assets/Create-access-token.png style='width: 50%;'g>
+<img src= Assets/Create-access-token.png style='width: 50%;'>
 
 Copy the Access Token and keep it somewhere safe.
 
@@ -72,8 +72,16 @@ Now we will be setting up cloud-init written in YAML format.\
   YAML is a human-friendly data serialization
   language for all programming languages.
 
- To start we need to create a config file that we will add to our Digital Ocean vm. (UNFINISHED)
-```
+ To start we need to create a config file that we will add to our Digital Ocean vm. To do so we need to first install VIM which is a text editor.
+
+ ``` sudo pacman -S vim ```
+
+ After downloading we can add the cloud config file to onto our arch vm which automates the initalization.
+
+ ``` vim cloud-init-arch.yml ```
+
+
+``` 
 #cloud-config
 users:
   - name: "Add your name here"
@@ -84,6 +92,7 @@ users:
 packages:
   - htop
   - vim
+
 disable_root: true
 ```
 Ill clarify what each line of code is for in the configuration.
@@ -170,6 +179,40 @@ After adding your API Token youll see a green checkmark saying your token was va
 
 <img src= 'Assets/Validating.png' style='width= 50%' > 
 
+
+
+You can **paste** this command to switch to profiles to the one you created.
+
+```doctl auth switch --context "Name of Profile" ```
+
+After that use this command below to get the details of your account
+
+```doctl account get```
+
+
+If successful you'll see an output like this.
+
+
+
+<img src= Assets/doctl-account-get.png>
+
+
+
+
+
+## Seting up a Droplet with ```cloud-init``` 
+
+Now that you have your cloud-init file, doctl first initalization, and you have your custom image uploaded to DigitalOcean we can set up your first Droplet. 
+
+doctl compute droplet create arch-linux-droplet \
+  --region sf3 \
+  --image archlinux \
+  --size s-1vcpu-1gb \
+  --ssh-keys your_ssh_key_id \
+  --user-data-file cloud-init.cfg
+
+
+doctl computer droplet create "Add droplet name here" --size s-1vcpu-1gb --image 165064169 --region sfo3 --ssh-keys "add ssh-key id"
 
 
 
