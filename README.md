@@ -52,15 +52,15 @@ This will add the Public Key to your clipboard which you can then add to your Di
 #### Creating an API token
 After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for API on the left side task bar.
 
-![API page screenshot](image.png)
+<img src= /home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/API-button.png>
 
 Give **Full Access**, a **Token Name**, and then generate the Token.
 
-![Create A New Personal Access Token](image-1.png)
+<img src='/home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/Create-access-token.png'>
 
 Copy the Access Token and keep it somewhere safe.
 
-![Dont Forget to copy your Access Token](image-2.png)
+<img src='/home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/Dont-forget-token.png'>
 
 
 
@@ -84,6 +84,7 @@ users:
 packages:
   - htop
   - vim
+  - wget
 disable_root: true
 ```
 Ill clarify what each line of code is for in the configuration.
@@ -115,7 +116,8 @@ Finally we can move the extracted files to your path and that will install it.
 To verify its been installed run the following and youll see an output like this
 
 ```doctl version```
-![doctl version output](image-3.png)
+
+<img src= /home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/doctl-version.png>
 
 
 upload arch image
@@ -126,36 +128,37 @@ Now before we deploy the droplet with cloud-init, you'll need to upload the cust
 
 Start with selecting the project youre going to use.
 
-![alt text](image.png)
+<img src= '/home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/Select-project.png' style='width: 50%;'>
 
 
 After selecting the project on the left side taskbar click on **Backups and Snapshots** and itll bring you to the page to add your custom image.
 
 
-![alt text](image-1.png)
-
+<img src= '/home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/Select-backup.png' style='width: 50%;'>
 
 
 **Press** the big upload image button on the bottom right
 
-![alt text](CustomImageUpload.png)
+<img src= '/home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/CustomImageUpload.png'>
 
 Select the Arch Linux Image and open it 
 
-![alt text](image-2.png)
+<img src= /home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/File-upload.png>
 
 Choose the Arch Linux Distro
 
-![alt text](image-3.png)
+<img src= '/home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/upload-an-image.png'>
 
 We will be choosing San Francisco 3 as the datacenter
 
-![alt text](image-4.png)
+<img src= /home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/choose-datacenter.png>
 
 
 Then at the bottom you can find the upload button
 
-![alt text](image-5.png)
+<img src= /home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/blue-button-image.png>
+
+
 
 
 
