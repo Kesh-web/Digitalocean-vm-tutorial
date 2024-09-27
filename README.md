@@ -156,7 +156,7 @@ We will be choosing San Francisco 3 as the datacenter
 
 Then at the bottom you can find the upload button
 
-<img src= /home/Ryan/Documents/PythonTerm2/Digitalocean-vm-tutorial/Assets/blue-button-image.png>
+<img src= Assets/blue-button-image.png>
 
 
 
