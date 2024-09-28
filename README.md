@@ -25,13 +25,17 @@ To start we will be creating SSH keys which allows you to connect to remote serv
 - You should be in your home directory which is ~ to start.
 - Once youre in your home directory **type** 
 
-``` mkdir .ssh ``` 
+```
+mkdir .ssh
+ ``` 
 
 This will create the folder that store the SSH keys in. 
 
 - Once completed you can **type** the following code in your terminal.
 
-```ssh-keygen -t ed25519 -f ~/.ssh/do-key -C "your email address"```
+```
+ssh-keygen -t ed25519 -f ~/.ssh/do-key -C "your email address"
+```
 
 To explain the previous command 
 1. **ssh-keygen** is the base of the command to create the public and private keys.
@@ -43,12 +47,19 @@ To explain the previous command
 #### Copying SSH Keys to clipboard
 To copy the SSH Public Key to your clipboard, go to your terminal and **type**. Note that this is how I do it on my system (Arch Linux), but you should check how to copy a file to a clipboard on your system.
 
-```wl-copy < ~/.ssh/do-key.pub``` 
+```
+wl-copy < ~/.ssh/do-key.pub
+``` 
 
 This will add the Public Key to your clipboard which you can then add to your Digital Ocean account in the cloud-init section
 ## Installing ```doctl```
 - You should be in your home directory which is ~ to start.
-```sudo pacman -S doctl```
+
+
+```
+sudo pacman -S doctl
+```
+
 #### Creating an API token
 After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for API on the left side task bar.
 
@@ -74,11 +85,15 @@ Now we will be setting up cloud-init written in YAML format.\
 
  To start we need to create a config file that we will add to our Digital Ocean vm. To do so we need to first install VIM which is a text editor.
 
- ``` sudo pacman -S vim ```
+ ``` 
+ sudo pacman -S vim
+  ```
 
  After downloading we can add the cloud config file to onto our arch vm which automates the initalization.
 
- ``` vim cloud-init-arch.yml ```
+ ``` 
+ vim cloud-init-arch.yml
+  ```
 
 
 
@@ -86,9 +101,9 @@ Paste the following config into **vim**
 
 You can press **i** to start editing and after adding the file **:wq** to save and exit **vim**
 
-1. : would enter command line mode
-2. w writes what you entered
-3. q quits out of vim 
+1. **:** would enter command line mode
+2. **w** writes what you entered
+3. **q** quits out of vim 
 
 
 ``` 
@@ -112,11 +127,13 @@ Ill clarify what each line of code is for in the configuration.
 4, **disable_root** prevents the root user from logging in the server via SSH, which improves security.
 
 
+
 ## Installing ```doctl``` 
 Now that we set up the #cloud-config file we can install ```doctl``` on the archlinux vm. Before we install it we need to install **wget** which is a program that retrieves content from web servers. To do so use the following command in your vm.
 
-
-``` sudo pacman -S wget ```
+```
+sudo pacman -S wget 
+```
 
 After that you can download ```doctl``` with the following 
 
@@ -193,11 +210,15 @@ After adding your API Token youll see a green checkmark saying your token was va
 
 You can **paste** this command to switch to profiles to the one you created.
 
-```doctl auth switch --context "Name of Profile" ```
+```
+doctl auth switch --context "Name of Profile" 
+```
 
 After that use this command below to get the details of your account
 
-```doctl account get```
+```
+doctl account get
+```
 
 
 If successful you'll see an output like this.
