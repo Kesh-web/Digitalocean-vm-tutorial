@@ -8,12 +8,17 @@ Digital ocean is a cloud infrastructure provider that offers cloud computing ser
 
 The purpose of a Droplet is to be able to operate indepedantly and it runs its own operating system. You would be able to install manage applications, databases, websites, and other services. 
 
-Some examples of using a Droplet is to host websites, host services such as (email, file storage), and running databases.
+Some examples of using a Droplet is to
+- Host websites
+- Hosting file servers to store files securely 
+- Database hosting (SQL, MongoDB)
+- VPN Services
+- Game Servers
 
 With that in mind the importance of setting up a secure VPS (virtual private server) is extremely crutial. Imagine setting up a file storage with your sensitive information. Without proper security your data could be exposed. Another example is preventing unauthorized access by setting up SSH Keys (will be explained in section 1).
 
 **What is cloud-init?**\
-It is an open source tool used to automate configuration of cloud instances when they are first launched. It is supported across all major public cloud providers, provisioning systems for private cloud infrastructure, and bare-metal installations.
+We will be using cloud-init to automate the configuration and setup of the Droplet. It is an open source tool used to automate configuration of cloud instances when they are first launched. It is supported across all major public cloud providers, provisioning systems for private cloud infrastructure, and bare-metal installations.
 
 **What is doctl?** \
 Doctl is a command line interface for DigitalOcean. It allows you to create, configure, destroy DigitalOcean Droplets, firewalls, database clusters, etc.
