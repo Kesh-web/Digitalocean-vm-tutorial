@@ -301,7 +301,32 @@ I hope this guide served you well in creating a new Droplet on DigitalOcean usin
 
 ## References ##
 
+pacman - ArchWiki. (n.d.). Wiki.archlinux.org. https://wiki.archlinux.org/title/pacman
 
+
+‌contributors, M. C. and. (n.d.). Markdown Guide. Www.markdownguide.org. https://www.markdownguide.org/
+
+cloud-init 24.3.1 documentation. (2017). Cloud-Init.io. https://docs.cloud-init.io/en/latest/index.html
+
+How To Use Cloud-Config For Your Initial Server Setup | DigitalOcean. (n.d.). Www.digitalocean.com. https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
+
+Introducing doctl: The command line interface to digitalocean. DigitalOcean. (n.d.). https://www.digitalocean.com/blog/introducing-doctl 
+
+How to create a personal access token. DigitalOcean Documentation. (n.d.-b). https://docs.digitalocean.com/reference/api/create-personal-access-token/ 
+
+How to automate droplet setup with cloud-init. DigitalOcean Documentation. (n.d.-a). https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/ 
+
+Adding a new SSH key to your github account. GitHub Docs. (n.d.). https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account 
+
+Chapter 2. introduction to cloud-init. Chapter 2. Introduction to cloud-init | Red Hat Product Documentation. (n.d.). https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_cloud-init_for_rhel_9/introduction-to-cloud-init_cloud-content 
+
+Doctl compute droplet create. DigitalOcean Documentation. (n.d.-a). https://docs.digitalocean.com/reference/doctl/reference/compute/droplet/create/ 
+
+Doctl Auth. DigitalOcean Documentation. (n.d.-a). https://docs.digitalocean.com/reference/doctl/reference/auth/ 
+
+‌
+
+‌
 
 
 
