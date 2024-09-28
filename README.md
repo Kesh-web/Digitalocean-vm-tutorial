@@ -119,7 +119,7 @@ Now we will be setting up cloud-init written in YAML format.\
 
  ``` 
  sudo pacman -S vim
-  ```
+```
 
  After downloading we can add the cloud config file to onto our arch vm which automates the initalization.
 
