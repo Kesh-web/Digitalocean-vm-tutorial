@@ -1,7 +1,9 @@
 # DigitalOcean-vm-tutorial
 This is an Arch Linux Setup on DigitalOcean using cloud-init and doctl.
 
-## Overview ##
+## Instruction Overview ##
+These are the steps were going to walk through for setting up the DigitalOcean Droplet. The main ones are setting up SSH key pairs, doctl, and the cloud-init config file.
+
 
 **What is DigitalOcean?**\
 Digital ocean is a cloud infrastructure provider that offers cloud computing services. It allows you to manage virtual private servers that they call "Droplets".
@@ -15,7 +17,8 @@ Some examples of using a Droplet is to
 - VPN Services
 - Game Servers
 
-With that in mind the importance of setting up a secure VPS (virtual private server) is extremely crutial. Imagine setting up a file storage with your sensitive information. Without proper security your data could be exposed. Another example is preventing unauthorized access by setting up SSH Keys (will be explained in section 1).
+\
+With that in mind the importance of setting up a secure VPS (virtual private server) is extremely crucial. Imagine setting up a file storage with your sensitive information. Without proper security your data could be exposed. Another example is preventing unauthorized access by setting up SSH Keys (will be explained in section 1).
 
 **What is cloud-init?**\
 We will be using cloud-init to automate the configuration and setup of the Droplet. It is an open source tool used to automate configuration of cloud instances when they are first launched. It is supported across all major public cloud providers, provisioning systems for private cloud infrastructure, and bare-metal installations.
@@ -23,7 +26,19 @@ We will be using cloud-init to automate the configuration and setup of the Dropl
 **What is doctl?** \
 Doctl is a command line interface for DigitalOcean. It allows you to create, configure, destroy DigitalOcean Droplets, firewalls, database clusters, etc.
 
+1. SSH Key Pairs 
+2. Creating an API Token for access to ```doctl```
+3. Setting up the Cloud-init configuration file
+4. Installing ```doctl```
+5. Uploading a custom image to DigitalOcean
+6. Authenticating ```doctl``` using your API Token
+7. Seting up a Droplet with ```cloud-init``` 
+8. Connecting to the newly created Droplet 
+9. Verifying cloud-init packages were installed 
 
+
+
+##
 ## Creating SSH Key Pairs
 To start we will be creating SSH keys which allows you to connect to remote servers over an encrypted connection.
 
@@ -49,6 +64,10 @@ To explain the previous command
 4. **do-key** is the name we will be giving the generated key. Its important to manage names properly if you have more than one SSH key.
 4. **-C** attaches a comment to the key(in our case putting an email to remember.)
 
+
+
+<br><br>
+
 #### Copying SSH Keys to clipboard
 To copy the SSH Public Key to your clipboard, go to your terminal and **type**. 
 >[!NOTE]
@@ -63,6 +82,7 @@ This will add the Public Key to your clipboard which you can then add to your Di
 >[!NOTE]
 > Keep this somewhere safe for now as we will need to paste it again.
 
+<br><br>
 
 ## Installing ```doctl```
 - You should be in your home directory which is ~ to start.
@@ -74,7 +94,7 @@ sudo pacman -S doctl
 
 #### Creating an API Token
 After installing doctl we need to create an **API Token** to grant acount access to doctl. On Digital Oceans homepage look for **API** on the left side task bar.
-
+<br><br>
 <img src= Assets/API-button.png style='width: 50%;'>
 
 Give **Full Access**, a **Token Name**, and then generate the Token.
@@ -82,7 +102,7 @@ Give **Full Access**, a **Token Name**, and then generate the Token.
 <img src= Assets/Create-access-token.png style='width: 50%;'>
 
 Copy the Access Token and keep it somewhere safe.
-
+<br><br>
 <img src= Assets/Dont-forget-token.png>
 
 
@@ -109,7 +129,7 @@ Now we will be setting up cloud-init written in YAML format.\
 
 
 
-Paste the following config into **vim**
+Paste the following config into **vim**.
 
 You can press **i** to start editing and after adding the file **:wq** to save and exit **vim**
 
@@ -141,7 +161,7 @@ Ill clarify what each line of code is for in the configuration.
 3. **packages:** adds a list of packages to be installed on the vm.
 4, **disable_root** prevents the root user from logging in the server via SSH, which improves security.
 
-
+<br><br>
 
 ## Installing ```doctl``` 
 Now that we set up the #cloud-config file we can install ```doctl``` on the archlinux vm. Before we install it we need to install **wget** which is a program that retrieves content from web servers. To do so use the following command in your vm.
@@ -169,7 +189,7 @@ To verify its been installed run the following and youll see an output like this
 
 <img src= Assets/doctl-version.png>
 
-
+<br><br>
 ## Uploading Custom Image to DigitalOcean
 Now before we deploy the droplet with cloud-init, you'll need to upload the custom Arch Linux image to Digital Ocean. Once you upload the custom image, youll be able to create a Droplet with all preconfigured cloud file.
 
@@ -204,7 +224,7 @@ We will be choosing San Francisco 3 as the Datacenter
 Then at the bottom you can find the upload button
 
 <img src= Assets/blue-button-image.png style='width: 50%;'>
-
+<br><br>
 
 ## Authenticating ```doctl``` using your API Token
 
@@ -243,7 +263,7 @@ If successful you'll see an output like this.
 
 
 
-
+<br><br>
 ## Seting up a Droplet with ```cloud-init``` 
 
 Now that you have your cloud-init file, doctl first initalization, and you have your custom image uploaded to DigitalOcean we can set up your first Droplet. 
@@ -269,16 +289,16 @@ After creating your droplet use this command to see your existing projects.
 This is show the name and Public IP of your new Droplet which we will use to connect to it in the next section.
 
 ```
-doctl compute droplet list --format Name, PublicIPv4
+doctl compute droplet list --format Name,PublicIPv4
 ```
 
-
-## Connect to your newly created Droplet ##
+<br><br>
+## Connecting to your newly created Droplet ##
 
 To connect you'll need to put this command below with the details from "droplet list" above.
 
 ```
-ssh example-user@"your-droplet-ip-address"
+ssh -i ~/.ssh/"key-name" "name"@"Public IPv4 Address""
 ```
 - ```example-user```: Specifies the user from your config
 - ```"your-droplet-ip-address"```: IP address of your Droplet
@@ -296,13 +316,15 @@ vim --version
 ```
 This is how it should look:
 
-<img src=Assets/vim-version.png>
+<img src=Assets/vim-version.png> 
 
-/
+
+
+
 
 After that you can do what you please with your newly created Droplet!
 I hope this guide served you well in creating a new Droplet on DigitalOcean using doctl.
-
+<br><br>
 
 ## References ##
 
