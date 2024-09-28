@@ -52,6 +52,10 @@ wl-copy < ~/.ssh/do-key.pub
 ``` 
 
 This will add the Public Key to your clipboard which you can then add to your Digital Ocean account in the cloud-init section
+
+**Note** keep this somewhere safe for now as we will need to paste it again.
+
+
 ## Installing ```doctl```
 - You should be in your home directory which is ~ to start.
 
@@ -61,7 +65,7 @@ sudo pacman -S doctl
 ```
 
 #### Creating an API token
-After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for API on the left side task bar.
+After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for **API** on the left side task bar.
 
 <img src= Assets/API-button.png style='width: 50%;'>
 
@@ -83,7 +87,7 @@ Now we will be setting up cloud-init written in YAML format.\
   YAML is a human-friendly data serialization
   language for all programming languages.
 
- To start we need to create a config file that we will add to our Digital Ocean vm. To do so we need to first install VIM which is a text editor.
+ To start we need to create a config file that we will add to our Digital Ocean vm. To do so we need to first install VIM which is a linux based text editor.
 
  ``` 
  sudo pacman -S vim
@@ -117,6 +121,9 @@ users:
 packages:
   - htop
   - vim
+  - curl
+  - less
+  - tree
 
 disable_root: true
 ```
@@ -235,15 +242,22 @@ If successful you'll see an output like this.
 
 Now that you have your cloud-init file, doctl first initalization, and you have your custom image uploaded to DigitalOcean we can set up your first Droplet. 
 
-doctl compute droplet create arch-linux-droplet \
-  --region sf3 \
-  --image archlinux \
+'''
+doctl compute droplet create "Add droplet name here" \
   --size s-1vcpu-1gb \
-  --ssh-keys your_ssh_key_id \
-  --user-data-file cloud-init.cfg
+  --image 165064168 \
+  --region sfo3 \
+  --ssh-keys "add ssh-key id" \
+  --user-data-file "Path of cloud init file" \
+  --wait
+'''
 
+**--size** specifices the type of pc created
+**--image** is the distro we chose (Arch)
+**--region** is the region of the server(San Franciso)
+**--wait** makes sure the command waits until the droplet is created before returning back to the terminal
 
-doctl computer droplet create "Add droplet name here" --size s-1vcpu-1gb --image 165064169 --region sfo3 --ssh-keys "add ssh-key id"
+After creating your droplet use this command to see your existing projects.
 
 
 
