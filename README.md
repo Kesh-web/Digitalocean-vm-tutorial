@@ -258,9 +258,37 @@ doctl compute droplet create "Add droplet name here" \
 **--wait** makes sure the command waits until the droplet is created before returning back to the terminal
 
 After creating your droplet use this command to see your existing projects.
+This is show the name and Public IP of your new Droplet which we will use to connect to it in the next section.
+
+```
+doctl compute droplet list --format Name, PublicIPv4
+```
 
 
+## Connect to your newly created Droplet ##
 
+To connect you'll need to put this command below with the details from "droplet list" above
+
+```
+ssh example-user@"your-droplet-ip-address"
+```
+- ```example-user```: Specifies the user from your config
+- ```"your-droplet-ip-address"```: IP address of your Droplet
+
+Once you're in your Droplet it'll show your name like this
+
+<img src=Assets/Droplet-terminal.png>
+
+### Verify cloud-init packages were installed ###
+
+Since we added some packages to the ```cloud-init``` config we can verify it was installed by running this command. One of those packages were vim so we can check.
+
+```
+vim --version
+```
+This is how it should look:
+
+<img src=Assets/vim-version.png>
 
 
 
