@@ -72,8 +72,8 @@ This will add the Public Key to your clipboard which you can then add to your Di
 sudo pacman -S doctl
 ```
 
-#### Creating an API token
-After installing doctl we need to create an API token to grant acount access to doctl. On Digital Oceans homepage look for **API** on the left side task bar.
+#### Creating an API Token
+After installing doctl we need to create an **API Token** to grant acount access to doctl. On Digital Oceans homepage look for **API** on the left side task bar.
 
 <img src= Assets/API-button.png style='width: 50%;'>
 
@@ -113,7 +113,7 @@ Paste the following config into **vim**
 
 You can press **i** to start editing and after adding the file **:wq** to save and exit **vim**
 
-1. **:** would enter command line mode
+1. **:** enters the command-line mode
 2. **w** writes what you entered
 3. **q** quits out of vim 
 
@@ -224,7 +224,7 @@ After adding your API Token youll see a green checkmark saying your token was va
 You can **paste** this command to switch to profiles to the one you created.
 
 ```
-doctl auth switch --context "Name of Profile" 
+doctl auth switch --context <Name of Profile> 
 ```
 
 After that use this command below to get the details of your account.
