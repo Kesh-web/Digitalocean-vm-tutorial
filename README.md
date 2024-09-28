@@ -1,9 +1,9 @@
-# Digitalocean-vm-tutorial
+# DigitalOcean-vm-tutorial
 This is an Arch Linux Setup on DigitalOcean using cloud-init and doctl.
 
 ## Overview ##
 
-**What is Digital Ocean?**\
+**What is DigitalOcean?**\
 Digital ocean is a cloud infrastructure provider that offers cloud computing services. It allows you to manage virtual private servers that they call "Droplets".
 
 The purpose of a Droplet is to be able to operate indepedantly and it runs its own operating system. You would be able to install manage applications, databases, websites, and other services. 
@@ -22,7 +22,7 @@ Doctl is a command line interface for DigitalOcean. It allows you to create, con
 ## Creating SSH Key Pairs
 To start we will be creating SSH keys which allows you to connect to remote servers over an encrypted connection.
 
-- You should be in your home directory which is ~ to start.
+- You should be in your home directory which is **~** to start.
 - Once youre in your home directory **type** 
 
 ```
@@ -45,7 +45,9 @@ To explain the previous command
 4. **-C** attaches a comment to the key(in our case putting an email to remember.)
 
 #### Copying SSH Keys to clipboard
-To copy the SSH Public Key to your clipboard, go to your terminal and **type**. Note that this is how I do it on my system (Arch Linux), but you should check how to copy a file to a clipboard on your system.
+To copy the SSH Public Key to your clipboard, go to your terminal and **type**. 
+>[!NOTE]
+>that this is how I do it on my system (Arch Linux), but you should check how to copy a file to a clipboard on your system.
 
 ```
 wl-copy < ~/.ssh/do-key.pub
@@ -53,7 +55,8 @@ wl-copy < ~/.ssh/do-key.pub
 
 This will add the Public Key to your clipboard which you can then add to your Digital Ocean account in the cloud-init section
 
-**Note** keep this somewhere safe for now as we will need to paste it again.
+>[!NOTE]
+> Keep this somewhere safe for now as we will need to paste it again.
 
 
 ## Installing ```doctl```
@@ -162,10 +165,7 @@ To verify its been installed run the following and youll see an output like this
 <img src= Assets/doctl-version.png>
 
 
-upload arch image
-upload ssh key arch
-
-## Uploading Custom Image to Digital Ocean
+## Uploading Custom Image to DigitalOcean
 Now before we deploy the droplet with cloud-init, you'll need to upload the custom Arch Linux image to Digital Ocean. Once you upload the custom image, youll be able to create a Droplet with all preconfigured cloud file.
 
 Start with selecting the project youre going to use.
@@ -191,7 +191,7 @@ Choose the Arch Linux Distro
 
 <img src= Assets/upload-an-image.png style='width: 50%;'>
 
-We will be choosing San Francisco 3 as the datacenter
+We will be choosing San Francisco 3 as the Datacenter
 
 <img src= Assets/choose-datacenter.png style='width: 50%;'>
 
@@ -209,7 +209,8 @@ You can change  anything about context to anything you want, but I just put my n
 ```doctl auth init --context Kesh```
 
 
-After adding your API Token youll see a green checkmark saying your token was validated.
+After adding your API Token youll see a green checkmark saying your token was validated. 
+
 
 <img src= 'Assets/Validating.png' style='width= 50%' > 
 
@@ -221,7 +222,7 @@ You can **paste** this command to switch to profiles to the one you created.
 doctl auth switch --context "Name of Profile" 
 ```
 
-After that use this command below to get the details of your account
+After that use this command below to get the details of your account.
 
 ```
 doctl account get
@@ -243,13 +244,15 @@ If successful you'll see an output like this.
 Now that you have your cloud-init file, doctl first initalization, and you have your custom image uploaded to DigitalOcean we can set up your first Droplet. 
 
 '''
-doctl compute droplet create "Add droplet name here" \
-  --size s-1vcpu-1gb \
-  --image 165064168 \
-  --region sfo3 \
-  --ssh-keys "add ssh-key id" \
-  --user-data-file "Path of cloud init file" \
+
+doctl compute droplet create "Add droplet name here" 
+  --size s-1vcpu-1gb 
+  --image 165064168 
+  --region sfo3 
+  --ssh-keys "add ssh-key id" 
+  --user-data-file "Path of cloud init file" 
   --wait
+  
 '''
 
 **--size** specifices the type of pc created
@@ -267,7 +270,7 @@ doctl compute droplet list --format Name, PublicIPv4
 
 ## Connect to your newly created Droplet ##
 
-To connect you'll need to put this command below with the details from "droplet list" above
+To connect you'll need to put this command below with the details from "droplet list" above.
 
 ```
 ssh example-user@"your-droplet-ip-address"
@@ -275,7 +278,7 @@ ssh example-user@"your-droplet-ip-address"
 - ```example-user```: Specifies the user from your config
 - ```"your-droplet-ip-address"```: IP address of your Droplet
 
-Once you're in your Droplet it'll show your name like this
+Once you're in your Droplet it'll show your name like this.
 
 <img src=Assets/Droplet-terminal.png>
 
@@ -289,6 +292,15 @@ vim --version
 This is how it should look:
 
 <img src=Assets/vim-version.png>
+
+/
+
+After that you can do what you please with your newly created Droplet!
+I hope this guide served you well in creating a new Droplet on DigitalOcean using doctl.
+
+
+## References ##
+
 
 
 
